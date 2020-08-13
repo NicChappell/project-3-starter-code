@@ -6,15 +6,21 @@ import {
   Route
 } from "react-router-dom";
 
-// components
+// page components
 import Blog from './pages/Blog'
 import Home from './pages/Home'
+import Portfolio from './pages/Portfolio'
 import NotFound from './pages/NotFound'
+
+// components
+import Footer from './components/Footer'
+import Navbar from './components/Navbar'
 
 function App() {
   return (
     <Router>
       <div className="container">
+        <Navbar />
         <Switch>
           <Route exact path="/">
             <Home />
@@ -22,10 +28,14 @@ function App() {
           <Route exact path="/blog">
             <Blog />
           </Route>
+          <Route exact path="/portfolio">
+            <Portfolio />
+          </Route>
           <Route path="*">
             <NotFound />
           </Route>
         </Switch>
+        <Footer />
       </div>
     </Router>
   );
