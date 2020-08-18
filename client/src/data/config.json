@@ -1,0 +1,11 @@
+{
+    "firstName": "Nic",
+    "lastName": "Chappell",
+    "fullName": "Nic Chappell",
+    "headline": "Lifelong learner and builder",
+    "skills": ["MongoDB", "Express", "React", "Node", "MySQL", "jQuery"],
+    "phone": "(402) 968-5985",
+    "email": "nwc@nicchappell.com",
+    "github": "https://github.com/NicChappell/",
+    "linkedIn": "https://www.linkedin.com/in/nicchappell/"
+}

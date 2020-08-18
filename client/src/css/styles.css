@@ -4,6 +4,27 @@ body {
     flex-direction: column;
 }
 
+footer a {
+    color: #ffffff;
+}
+
+footer span {
+    line-height: 2.5rem !important;
+}
+
+footer a svg {
+    height: 2.5rem !important;
+    width: 2.5rem !important;
+}
+
+footer a {
+    margin-left: 0.75rem;
+}
+
+footer .footer-copyright .row {
+    margin: 0;
+}
+
 #router-content {
     flex: 1 0 auto;
 }

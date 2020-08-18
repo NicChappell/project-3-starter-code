@@ -3,10 +3,10 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 // components
-import Project from '../components/Project'
+import ProjectCard from '../components/ProjectCard'
 
 // data
-import data from '../data/project.json'
+import data from '../data/projects.json'
 
 const Portfolio = () => {
     const [projects, setProjects] = useState([])
@@ -22,7 +22,7 @@ const Portfolio = () => {
         <div className="row">
             {projects.map((project, index) => {
                 return (
-                    <Project
+                    <ProjectCard
                         key={index}
                         project={project}
                     />

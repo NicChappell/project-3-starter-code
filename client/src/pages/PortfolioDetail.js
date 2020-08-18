@@ -2,11 +2,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
-// components
-import Project from '../components/Project'
-
 // data
-import data from '../data/project.json'
+import data from '../data/projects.json'
 
 const PortfolioDetail = () => {
     const [project, setProject] = useState([])
