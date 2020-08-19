@@ -9,6 +9,7 @@ const Contact = () => {
     const [email, setEmail] = useState('')
     const [tel, setTel] = useState('')
     const [message, setMessage] = useState('')
+    const [success, setSuccess] = useState(false)
 
     const handleChange = event => {
         event.preventDefault()
@@ -49,17 +50,17 @@ const Contact = () => {
             tel,
             message
         }
-        console.log(payload)
 
         // send email
-        axios.post('/contact/', payload)
+        axios.post('/api/contact/', payload)
             .then(() => {
-                // reset state
+                // update state
                 setFirstName('')
                 setLastEmail('')
                 setEmail('')
                 setTel('')
                 setMessage('')
+                setSuccess(true)
             })
             .catch(err => console.log(err))
     }
@@ -126,12 +127,11 @@ const Contact = () => {
                                         </textarea>
                                     </div>
                                     <div className="col s12">
-                                        <button
-                                            className="btn waves-effect waves-light"
-                                            type="submit"
-                                        >
-                                            Send
-                                        </button>
+                                        {
+                                            success
+                                                ? <span className="success">Your message has been sent</span>
+                                                : <button className="btn" type="submit">Send</button>
+                                        }
                                     </div>
                                 </div>
                             </form>

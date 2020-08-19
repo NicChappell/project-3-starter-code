@@ -18,7 +18,7 @@ router.post('/', (req, res) => {
 });
 
 router.get('/:slug', (req, res) => {
-    db.Project.find({ slug: req.params.slug })
+    db.Project.findOne({ slug: req.params.slug })
         .then(project => res.status(200).json(project))
         .catch(err => res.status(404).json(err));
 });

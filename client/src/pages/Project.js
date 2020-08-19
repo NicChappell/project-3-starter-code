@@ -1,11 +1,15 @@
 // dependencies
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
-// data
-import projectsJSON from '../data/projects.json'
+// // data
+// import projectsJSON from '../data/projects.json'
 
 const Project = () => {
+    // get slug param
+    const { slug } = useParams()
+
     // state hook variables
     const [project, setProject] = useState([])
 
@@ -19,10 +23,10 @@ const Project = () => {
     } = project
 
     useEffect(() => {
-        // axios.get(`/projects/${slug}`)
-        //     .then(res => setProject(res.data))
-        //     .catch(err => console.log(err))
-        setProject(projectsJSON[0])
+        axios.get(`/api/projects/${slug}`)
+            .then(res => setProject(res.data))
+            .catch(err => console.log(err))
+        // setProject(projectsJSON[0])
     }, [])
 
     return (
