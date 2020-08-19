@@ -1,53 +1,55 @@
 // dependencies
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route
+    BrowserRouter as Router,
+    Switch,
+    Route
 } from "react-router-dom";
 
 // page components
-import Blog from './pages/Blog'
-import Home from './pages/Home'
+import Contact from './pages/Contact'
 import Portfolio from './pages/Portfolio'
-import PortfolioDetail from './pages/PortfolioDetail'
+import Project from './pages/Project'
 import NotFound from './pages/NotFound'
 
 // components
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 
+// data
+import profileJSON from './data/profile.json'
+
 // styles
 import './css/styles.css'
 
 function App() {
-  return (
-    <Router>
-      <div className="container">
-        <Navbar />
-        <div id="router-content">
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/blog">
-              <Blog />
-            </Route>
-            <Route exact path="/portfolio">
-              <Portfolio />
-            </Route>
-            <Route exact path="/portfolio/:slug">
-              <PortfolioDetail />
-            </Route>
-            <Route path="*">
-              <NotFound />
-            </Route>
-          </Switch>
-        </div>
-        <Footer />
-      </div>
-    </Router>
-  );
+    // state hook variables
+    const [profile, setProfile] = useState({})
+
+    // set profile after component mounts
+    useEffect(() => setProfile(profileJSON), [])
+
+    // set title when profile changes
+    useEffect(() => {
+        document.title = profile.fullName
+    }, [profile])
+
+    return (
+        <Router>
+            <div id="app-content">
+                <Navbar profile={profile} />
+                <div id="router-content">
+                    <Switch>
+                        <Route exact path="/" component={Portfolio} />
+                        <Route exact path="/contact" component={Contact} />
+                        <Route exact path="/projects/:slug" component={Project} />
+                        <Route path="*" component={NotFound} />
+                    </Switch>
+                </div>
+                <Footer profile={profile} />
+            </div>
+        </Router>
+    );
 }
 
 export default App;
