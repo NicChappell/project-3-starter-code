@@ -3,67 +3,67 @@ import React, { useState } from 'react'
 import axios from 'axios'
 
 const Contact = () => {
-    // state hook variables
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastEmail] = useState('')
-    const [email, setEmail] = useState('')
-    const [tel, setTel] = useState('')
-    const [message, setMessage] = useState('')
-    const [success, setSuccess] = useState(false)
+    // // state hook variables
+    // const [firstName, setFirstName] = useState('')
+    // const [lastName, setLastEmail] = useState('')
+    // const [email, setEmail] = useState('')
+    // const [tel, setTel] = useState('')
+    // const [message, setMessage] = useState('')
+    // const [success, setSuccess] = useState(false)
 
-    const handleChange = event => {
-        event.preventDefault()
+    // const handleChange = event => {
+    //     event.preventDefault()
 
-        // destructure event
-        const { name, value } = event.target
+    //     // destructure event
+    //     const { name, value } = event.target
 
-        // update state
-        switch (name) {
-            case 'firstName':
-                setFirstName(value)
-                break
-            case 'lastName':
-                setLastEmail(value)
-                break
-            case 'email':
-                setEmail(value)
-                break
-            case 'tel':
-                setTel(value)
-                break
-            case 'message':
-                setMessage(value)
-                break
-            default:
-                return
-        }
-    }
+    //     // update state
+    //     switch (name) {
+    //         case 'firstName':
+    //             setFirstName(value)
+    //             break
+    //         case 'lastName':
+    //             setLastEmail(value)
+    //             break
+    //         case 'email':
+    //             setEmail(value)
+    //             break
+    //         case 'tel':
+    //             setTel(value)
+    //             break
+    //         case 'message':
+    //             setMessage(value)
+    //             break
+    //         default:
+    //             return
+    //     }
+    // }
 
-    const handleSubmit = event => {
-        event.preventDefault()
+    // const handleSubmit = event => {
+    //     event.preventDefault()
 
-        // create payload
-        const payload = {
-            firstName,
-            lastName,
-            email,
-            tel,
-            message
-        }
+    //     // create payload
+    //     const payload = {
+    //         firstName,
+    //         lastName,
+    //         email,
+    //         tel,
+    //         message
+    //     }
 
-        // send email
-        axios.post('/api/contact/', payload)
-            .then(() => {
-                // update state
-                setFirstName('')
-                setLastEmail('')
-                setEmail('')
-                setTel('')
-                setMessage('')
-                setSuccess(true)
-            })
-            .catch(err => console.log(err))
-    }
+    //     // send email
+    //     axios.post('/api/contact/', payload)
+    //         .then(() => {
+    //             // update state
+    //             setFirstName('')
+    //             setLastEmail('')
+    //             setEmail('')
+    //             setTel('')
+    //             setMessage('')
+    //             setSuccess(true)
+    //         })
+    //         .catch(err => console.log(err))
+    // }
 
     return (
         <div className="container" id="contact">
@@ -73,7 +73,7 @@ const Contact = () => {
                         <div className="row">
                             <form
                                 className="col s12"
-                                onSubmit={handleSubmit}
+                                // onSubmit={handleSubmit}
                             >
                                 <div className="row">
                                     <div className="input-field col s6">
@@ -81,9 +81,9 @@ const Contact = () => {
                                         <input
                                             autoComplete="given-name"
                                             name="firstName"
-                                            onChange={handleChange}
+                                            // onChange={handleChange}
                                             type="text"
-                                            value={firstName}
+                                        // value={firstName}
                                         />
                                     </div>
                                     <div className="input-field col s6">
@@ -91,9 +91,9 @@ const Contact = () => {
                                         <input
                                             autoComplete="family-name"
                                             name="lastName"
-                                            onChange={handleChange}
+                                            // onChange={handleChange}
                                             type="text"
-                                            value={lastName}
+                                        // value={lastName}
                                         />
                                     </div>
                                     <div className="input-field col s12">
@@ -101,9 +101,9 @@ const Contact = () => {
                                         <input
                                             autoComplete="email"
                                             name="email"
-                                            onChange={handleChange}
+                                            // onChange={handleChange}
                                             type="email"
-                                            value={email}
+                                        // value={email}
                                         />
                                     </div>
                                     <div className="input-field col s12">
@@ -111,28 +111,31 @@ const Contact = () => {
                                         <input
                                             autoComplete="tel"
                                             name="tel"
-                                            onChange={handleChange}
+                                            // onChange={handleChange}
                                             type="tel"
-                                            value={tel}
+                                        // value={tel}
                                         />
                                     </div>
                                     <div className="input-field col s12">
                                         <span>Message</span>
                                         <textarea
                                             className="materialize-textarea"
-                                            onChange={handleChange}
+                                            // onChange={handleChange}
                                             name="message"
-                                            value={message}
+                                        // value={message}
                                         >
                                         </textarea>
                                     </div>
                                     <div className="col s12">
+                                        <button className="btn" type="submit">Send</button>
+                                    </div>
+                                    {/* <div className="col s12">
                                         {
                                             success
                                                 ? <span className="success">Your message has been sent</span>
                                                 : <button className="btn" type="submit">Send</button>
                                         }
-                                    </div>
+                                    </div> */}
                                 </div>
                             </form>
                         </div>
