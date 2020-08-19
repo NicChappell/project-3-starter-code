@@ -6,7 +6,7 @@ import axios from 'axios'
 import ProjectCard from '../components/ProjectCard'
 
 // data
-import data from '../data/projects.json'
+import projectsJSON from '../data/projects.json'
 
 const Portfolio = () => {
     const [projects, setProjects] = useState([])
@@ -15,19 +15,21 @@ const Portfolio = () => {
         // axios.get('https://randomuser.me/api/')
         //     .then(res => setProjects(res.data.results))
         //     .catch(err => console.log(err))
-        setProjects(data)
+        setProjects(projectsJSON)
     }, [])
 
     return (
-        <div className="row">
-            {projects.map((project, index) => {
-                return (
-                    <ProjectCard
-                        key={index}
-                        project={project}
-                    />
-                )
-            })}
+        <div className="container" id="portfolio">
+            <div className="row">
+                {projects.map((project, index) => {
+                    return (
+                        <ProjectCard
+                            key={index}
+                            project={project}
+                        />
+                    )
+                })}
+            </div>
         </div>
     )
 }

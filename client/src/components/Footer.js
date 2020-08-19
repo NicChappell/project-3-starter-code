@@ -26,23 +26,25 @@ const Footer = ({ profile }) => {
         <footer className="page-footer">
             <div className="container">
                 <div className="row">
-                    <div className="col l6 s12">
+                    <div className="col s12 m6">
                         <h5 className="white-text">{fullName}</h5>
                         <p className="grey-text text-lighten-4">{headline}</p>
                     </div>
-                    <div className="col l4 offset-l2 s12">
-                        <div className="col s12">
-                            <h5 className="white-text">Skills</h5>
-                        </div>
-                        <div className="col l6 s12">
-                            <ul>
-                                {skills2D[0] && skills2D[0].map((skill, index) => <li key={index}>{skill}</li>)}
-                            </ul>
-                        </div>
-                        <div className="col l6 s12">
-                            <ul>
-                                {skills2D[1] && skills2D[1].map((skill, index) => <li key={index}>{skill}</li>)}
-                            </ul>
+                    <div className="col s12 m4 offset-m2">
+                        <div className="row">
+                            <div className="col s12">
+                                <h5 className="white-text">Skills</h5>
+                            </div>
+                            <div className="col s3 m6 l4">
+                                <ul>
+                                    {skills2D[0] && skills2D[0].map((skill, index) => <li key={index}>{skill}</li>)}
+                                </ul>
+                            </div>
+                            <div className="col s3 m6 l4">
+                                <ul>
+                                    {skills2D[1] && skills2D[1].map((skill, index) => <li key={index}>{skill}</li>)}
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -50,10 +52,10 @@ const Footer = ({ profile }) => {
             <div className="footer-copyright">
                 <div className="container">
                     <div className="row">
-                        <div className="col l6 s12">
-                            <span className="fuck">{`© ${new Date().getFullYear()} ${fullName}`}</span>
+                        <div className="col s12 m6">
+                            <span className="fuck">{`© Copyright ${new Date().getFullYear()}`}</span>
                         </div>
-                        <div className="col l4 offset-l2 s12">
+                        <div className="col s12 m4 offset-m2">
                             <a href={github} rel="noopener noreferrer" target="_blank">
                                 <FontAwesomeIcon icon={faGithubSquare} />
                             </a>

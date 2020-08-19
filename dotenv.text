@@ -1,0 +1,6 @@
+MONGODB_URI=[your_mongodb_uri]
+
+NODEMAILER_USER=[your_gmail_username]
+NODEMAILER_PASS=[your_gmail_password]
+
+EMAIL=[your_email_address]
