@@ -22,11 +22,14 @@ const Project = () => {
         demo
     } = project
 
+    // get project after component mounts
     useEffect(() => {
         axios.get(`/api/projects/${slug}`)
             .then(res => setProject(res.data))
             .catch(err => console.log(err))
         // setProject(projectsJSON[0])
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
