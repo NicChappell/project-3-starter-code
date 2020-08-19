@@ -17,7 +17,7 @@ const Portfolio = () => {
         axios.get('/api/projects/')
             .then(res => setProjects(res.data))
             .catch(err => console.log(err))
-        // setProjects(projectsJSON[0])
+        // setProjects(projectsJSON)
     }, [])
 
     return (
