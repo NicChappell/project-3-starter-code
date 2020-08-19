@@ -1,10 +1,11 @@
 // dependencies
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import {
     BrowserRouter as Router,
     Switch,
     Route
-} from "react-router-dom";
+} from "react-router-dom"
+import axios from 'axios'
 
 // page components
 import Contact from './pages/Contact'
@@ -16,8 +17,8 @@ import NotFound from './pages/NotFound'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 
-// data
-import profileJSON from './data/profile.json'
+// // data
+// import profileJSON from './data/profile.json'
 
 // styles
 import './css/styles.css'
@@ -26,8 +27,13 @@ function App() {
     // state hook variables
     const [profile, setProfile] = useState({})
 
-    // set profile after component mounts
-    useEffect(() => setProfile(profileJSON), [])
+    // get profile after component mounts
+    useEffect(() => {
+        axios.get(`/api/profile/`)
+            .then(res => setProfile(res.data))
+            .catch(err => console.log(err))
+        // setProfile(profileJSON)
+    }, [])
 
     // set title when profile changes
     useEffect(() => {
@@ -49,7 +55,7 @@ function App() {
                 <Footer profile={profile} />
             </div>
         </Router>
-    );
+    )
 }
 
-export default App;
+export default App
