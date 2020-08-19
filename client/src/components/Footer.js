@@ -16,7 +16,7 @@ const Footer = ({ profile }) => {
         linkedIn
     } = profile
 
-    // state hooke variables
+    // state hook variables
     const [skills2D, setSkills2D] = useState([[], []])
 
     // split skills array into halves
