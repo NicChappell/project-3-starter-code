@@ -17,8 +17,8 @@ import NotFound from './pages/NotFound'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 
-// // data
-// import profileJSON from './data/profile.json'
+// data
+import profileJSON from './data/profile.json'
 
 // styles
 import './css/styles.css'
@@ -29,16 +29,16 @@ function App() {
 
     // get profile after component mounts
     useEffect(() => {
-        axios.get(`/api/profile/`)
-            .then(res => setProfile(res.data))
-            .catch(err => console.log(err))
-        // setProfile(profileJSON)
+        // axios.get(`/api/profile/`)
+        //     .then(res => setProfile(res.data))
+        //     .catch(err => console.log(err))
+        setProfile(profileJSON)
     }, [])
 
-    // set title when profile changes
-    useEffect(() => {
-        document.title = profile.fullName
-    }, [profile])
+    // // set title when profile changes
+    // useEffect(() => {
+    //     document.title = profile.fullName
+    // }, [profile])
 
     return (
         <Router>

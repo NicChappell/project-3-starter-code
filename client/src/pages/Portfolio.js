@@ -5,8 +5,8 @@ import axios from 'axios'
 // components
 import ProjectCard from '../components/ProjectCard'
 
-// // data
-// import projectsJSON from '../data/projects.json'
+// data
+import projectsJSON from '../data/projects.json'
 
 const Portfolio = () => {
     // state hook variables
@@ -14,10 +14,10 @@ const Portfolio = () => {
 
     // get projects after component mounts
     useEffect(() => {
-        axios.get('/api/projects/')
-            .then(res => setProjects(res.data))
-            .catch(err => console.log(err))
-        // setProjects(projectsJSON)
+        // axios.get('/api/projects/')
+        //     .then(res => setProjects(res.data))
+        //     .catch(err => console.log(err))
+        setProjects(projectsJSON)
     }, [])
 
     return (
